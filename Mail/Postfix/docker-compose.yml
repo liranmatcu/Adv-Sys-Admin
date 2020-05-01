@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  postfix:
+    build: .
+    image: postfix
+    container_name: postfix-server
+    hostname: psf
+    expose:
+    - "25"
+    env_file:
+      - env
+    restart: always
+    volumes:
+     - "/etc/localtime:/etc/localtime:ro"
