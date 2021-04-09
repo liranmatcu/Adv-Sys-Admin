@@ -1,0 +1,14 @@
+# Fetch the original configuration files for students to edit before doing the labs
+docker run --rm httpd:2.4 cat /usr/local/apache2/conf/httpd.conf > conf/httpd.conf
+docker run --rm httpd:2.4 cat /usr/local/apache2/conf/mime.types > conf/mime.types
+
+# Start server:
+docker-compose up webserver
+docker-compose up  -d webserver  #  In daemon mode
+
+docker-compose up webserver2
+
+
+# Start from command line w/o using composer file
+docker build -t httpd-image . # Note that there is a dot in the end
+docker run -it --name web -p 8080:80 -p 443:443 httpd-image

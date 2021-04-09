@@ -1,11 +1,14 @@
 version: "3"
 
 services:
-  # Web service: Apache
+
+  # Web service: Apache auto configure with Dockerfile
   webserver:
+
     build:
       context: .
       dockerfile: Apache-Dockerfile
+
     container_name: web-apache
     hostname: web
     ports:
@@ -13,13 +16,17 @@ services:
       - "443:443"
     restart: unless-stopped
 
-    # volumes:
-    #   - ./html:/usr/local/apache2/htdocs/
-    # 	- ./certs/:/usr/local/apache2/conf/
 
+  # Web service: Apache with manual configuration
+  webserver2:
+    image: httpd:2.4
 
-# Start server:
-# docker-compose up webserver
-
-# docker build -t httpd-image . # Note that there is a dot in the end
-# docker run -it --name web -p 8080:80 -p 443:443 httpd-image
+    container_name: web-apache-2
+    hostname: web2
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/
+      - ./conf/:/usr/local/apache2/conf/
