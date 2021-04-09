@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  # Web service: Apache
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web-apache
+    hostname: web
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+
+    # volumes:
+    #   - ./www:/usr/local/apache2/htdocs/
+    # 	- ./certs/:/usr/local/apache2/conf/
+
+
+# Start server:
+# docker-compose up webserver
+
+# docker build -t httpd-image . # Note that there is a dot in the end
+# docker run -it --name web -p 8080:80 -p 443:443 httpd-image
