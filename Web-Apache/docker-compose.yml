@@ -18,7 +18,9 @@ services:
 
 
   # Web service: Apache with manual configuration
+  # Configuration files are located in ./conf folder
   webserver2:
+    # Instead of building an image, use httpd image directly
     image: httpd:2.4
 
     container_name: web-apache-2
