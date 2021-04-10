@@ -2,29 +2,13 @@ version: "3"
 
 services:
 
-  # Web service: Apache auto configure with Dockerfile
+  # Allow user to perform manual configuration
+  # Configuration files are located in ./conf folder
   webserver:
-
-    build:
-      context: .
-      dockerfile: Apache-Dockerfile
-
+    # Instead of building an image, use a httpd image directly
+    image: httpd:2.4
     container_name: web-apache
     hostname: web
-    ports:
-      - "80:80"
-      - "443:443"
-    restart: unless-stopped
-
-
-  # Web service: Apache with manual configuration
-  # Configuration files are located in ./conf folder
-  webserver2:
-    # Instead of building an image, use httpd image directly
-    image: httpd:2.4
-
-    container_name: web-apache-2
-    hostname: web2
     ports:
       - "80:80"
       - "443:443"
@@ -33,3 +17,20 @@ services:
     volumes:
       - ./html:/usr/local/apache2/htdocs/
       - ./conf/:/usr/local/apache2/conf/
+
+
+  # Apache configured with https enabled
+  # using Dockerfile 
+  webdemo:
+    # Build our image based a Docker file
+    build:
+      context: .
+      dockerfile: Apache-Dockerfile
+
+    container_name: web-demo-apache
+    hostname: web
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+
