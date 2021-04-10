@@ -1,10 +1,13 @@
 # Fetch the original configuration files for students to edit before doing the labs
 docker run --rm httpd:2.4 cat /usr/local/apache2/conf/httpd.conf > conf/httpd.conf
 docker run --rm httpd:2.4 cat /usr/local/apache2/conf/mime.types > conf/mime.types
+docker run --rm httpd:2.4 cat /usr/local/apache2/conf/extra/httpd-ssl.conf > conf/extra/httpd-ssl.conf
+docker run --rm httpd:2.4 cat /usr/local/apache2/conf/extra/httpd-vhosts.conf > conf/extra/httpd-vhosts.conf
 
 # Start server:
 docker-compose up webserver
 docker-compose up  -d webserver  #  In daemon mode
+docker exec -it web-apache sh    #  Log on to the web server container
 
 docker-compose up webserver2
 
