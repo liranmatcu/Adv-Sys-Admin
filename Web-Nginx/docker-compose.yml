@@ -13,6 +13,9 @@ services:
      - "8080:8080"
     restart: unless-stopped
     tty: true
+    volumes:
+      - ./html:/var/www
+      # - ./conf.d/:/etc/nginx/conf.d/
 
   # Web service: Nginx
   webserver2:
