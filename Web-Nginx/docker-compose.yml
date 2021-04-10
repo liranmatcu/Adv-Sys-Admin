@@ -14,8 +14,9 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
-      - ./html:/var/www
+      - ./html:/usr/share/nginx/html/
       # - ./conf.d/:/etc/nginx/conf.d/
+      # - ./html:/var/www/html/
 
   # Web service: Nginx
   webserver2:
