@@ -1,6 +1,0 @@
-
-Start server:
-docker-compose up mailserver
-
-Start client:
-docker-compose run mailclient
