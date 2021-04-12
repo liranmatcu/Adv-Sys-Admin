@@ -24,23 +24,25 @@ services:
       MAIL_ADDRESS: student@eureka.edu
 
 
-
-  # Email Client to Send via SMTP using s-nail
+  # Email Client to Send via SMTP using s-nail on Alpine
   sendclient:
     build:
       context: ./Client
-      dockerfile: Dockerfile-Ubuntu
+      dockerfile: Dockerfile-Alpine
     container_name: sendclient
     hostname: sclient
     # volumes:
     #   - ./test-data:/opt/test-data
 
-
-  # Email Client to Send via SMTP using mail (mailx)
+  # Email Client to Send via SMTP using s-nail on Ubuntu
   sendclient2:
     build:
       context: ./Client
-      dockerfile: Dockerfile-Alpine
+      dockerfile: Dockerfile-Ubuntu
     container_name: sendclient2
     hostname: sclient
+    # volumes:
+    #   - ./test-data:/opt/test-data
+
+
 

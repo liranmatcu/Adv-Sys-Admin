@@ -9,7 +9,8 @@ docker-compose up mailserver
 
 
 Start client (using s-nail program to send mails):
-Ubuntu
-docker-compose run sendclient
 Alpine (mailx)
-docker-compose run sendclient2 bash
+docker-compose run sendclient bash
+
+Ubuntu
+docker-compose run sendclient2

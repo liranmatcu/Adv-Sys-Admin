@@ -11,7 +11,7 @@ RUN apk update && \
     apk add --no-cache s-nail bash && \
     adduser -D -u $USER_UID $USER_NAME && \
     echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc && \
-    echo PS1=\"\\u@\\h:\\W \$ \" >> /$USER_NAME/.bashrc && \
+    ln -s /usr/bin/mail /usr/bin/s-nail && \
     rm -rf /var/cache/apk/*
 
     
