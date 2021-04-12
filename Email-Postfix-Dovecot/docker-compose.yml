@@ -34,3 +34,14 @@ services:
     hostname: sclient
     # volumes:
     #   - ./test-data:/opt/test-data
+
+
+
+
+  # Email Client to receive via SMTP using mailx
+  receiveclient:
+    build: ./Client-Receive
+    container_name: receiveclient
+    hostname: rclient
+    # volumes:
+    #   - ./test-data:/opt/test-data

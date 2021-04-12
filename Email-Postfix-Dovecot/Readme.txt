@@ -6,3 +6,6 @@ docker-compose up mailserver
 
 Start client (using s-nail program to send mails):
 docker-compose run sendclient
+
+
+docker-compose run receiveclient
