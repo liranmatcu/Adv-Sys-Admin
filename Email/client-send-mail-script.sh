@@ -37,7 +37,3 @@ set smtp-auth=login
 set smtp-auth-user=student
 set smtp-auth-password=password
 
-
-# Server configuration files
-docker run --rm antespi/docker-imap-devel cat /etc/dovecot/conf.d/10-auth.conf > Server/10-auth.conf
-docker run --rm antespi/docker-imap-devel cat /etc/dovecot/conf.d/10-ssl.conf > Server/10-ssl.conf

@@ -7,9 +7,9 @@ services:
     container_name: mailserver
     image: antespi/docker-imap-devel
     
-    # volumes:
-      # - Server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
-      # - Server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
+    volumes:
+      - ./Server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+      - ./Server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
       # `10-ssl.conf` -> `ssl=no`
       # `10-auth.conf` -> `disable_plaintext_auth=no`
 

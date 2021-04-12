@@ -14,3 +14,10 @@ docker-compose run mailclient bash
 
 Ubuntu
 docker-compose run mailclient2
+
+
+
+
+# Server configuration files
+docker run --rm antespi/docker-imap-devel cat /etc/dovecot/conf.d/10-auth.conf > ./Server/10-auth.conf
+docker run --rm antespi/docker-imap-devel cat /etc/dovecot/conf.d/10-ssl.conf > ./Server/10-ssl.conf
