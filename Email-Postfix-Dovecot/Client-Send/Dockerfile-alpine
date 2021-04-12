@@ -1,5 +1,0 @@
-FROM alpine
-
-RUN  apk update && \
-     apk add --no-cache s-nail bash && \
-     echo PS1=\"\\u@\\h:\\W \$ \" >> /root/.bashrc

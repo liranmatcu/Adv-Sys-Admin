@@ -27,21 +27,20 @@ services:
 
   # Email Client to Send via SMTP using s-nail
   sendclient:
-    build: ./Client-Send
-      # context: ./Client-Send
-      # dockerfile: SendClientDockerfile
+    build:
+      context: ./Client
+      dockerfile: Dockerfile-Ubuntu
     container_name: sendclient
     hostname: sclient
     # volumes:
     #   - ./test-data:/opt/test-data
 
 
+  # Email Client to Send via SMTP using mail (mailx)
+  sendclient2:
+    build:
+      context: ./Client
+      dockerfile: Dockerfile-Alpine
+    container_name: sendclient2
+    hostname: sclient
 
-
-  # Email Client to receive via SMTP using mailx
-  receiveclient:
-    build: ./Client-Receive
-    container_name: receiveclient
-    hostname: rclient
-    # volumes:
-    #   - ./test-data:/opt/test-data
