@@ -5,4 +5,4 @@ Start server (antespi/docker-imap-devel):
 docker-compose up mailserver
 
 Start client (using s-nail program to send mails):
-docker-compose run mailclient
+docker-compose run sendclient
