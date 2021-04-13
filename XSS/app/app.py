@@ -1,8 +1,7 @@
 from flask import Flask, render_template, request, redirect
-
-
-
 app = Flask(__name__)
+# from flask import Flask
+# app = Flask(__name__)
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -20,14 +19,12 @@ def blog():
 
     endhtml = ""
 
-    with open("blog.txt", "r") as file:
+    with open("/app/blog.txt", "r") as file:
         lines = file.readlines()
 
         for item in lines:
 
             endhtml += "<div class='col-12 card' style='margin-top: 10px; margin-bottom: 10px;'><div class='card-body'><p>{}</p></div></div>".format(item)
-
-
 
 
     return render_template("blog.html", blog=endhtml)
@@ -42,7 +39,7 @@ def blogcreate():
         #content = content.replace(">", "&gt;")
 
 
-        with open("blog.txt", "a") as file:
+        with open("/app/blog.txt", "a") as file:
             file.write(content + "\n")
 
         return redirect("/blog")
