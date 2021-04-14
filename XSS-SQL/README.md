@@ -18,6 +18,3 @@ Once the comment was added, the included HTML-snippet will be executed every tim
 </script>
 
 
-<script>
-  alert(document.cookie=true);
-</script>
