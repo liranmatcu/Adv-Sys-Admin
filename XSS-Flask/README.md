@@ -1,0 +1,7 @@
+# XSS Demo
+
+1. Execute `docker-compose up` in the root of this repository.
+2. Visit (http://localhost:5000/blog) in your browser.
+2. Visit (http://localhost:5000/pagenotfound) in your browser.
+
+
