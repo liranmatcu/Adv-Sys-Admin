@@ -4,11 +4,20 @@
 2. Visit [`localhost`](http://localhost/) in your browser.
 3. Add a comment at the bottom of the page and include HTML-elements like
 
-```html
+
 <script>
   alert('Hello World!');
 </script>
-```
+
 
 Once the comment was added, the included HTML-snippet will be executed every time the page loads.
 
+
+<script>
+  alert(document.cookie);
+</script>
+
+
+<script>
+  alert(document.cookie=true);
+</script>
