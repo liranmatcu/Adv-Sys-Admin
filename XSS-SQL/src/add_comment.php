@@ -7,7 +7,6 @@ if (isset($_POST)) {
   $dbname = "xss_db";
 
 
-
   if(!$_POST["username"]) die("No username given!");
   if(!$_POST["comment"]) die("No comment given!");
 
@@ -22,7 +21,7 @@ if (isset($_POST)) {
   $stmt->execute();
 
   header( "refresh:3;url=index.php" );
-  echo "Your comment was saved. Thanks!";
+  echo "Your comment has been saved. Thanks! You will be redirected shortly. ";
 
   $stmt->close();
   $mysqli->close();

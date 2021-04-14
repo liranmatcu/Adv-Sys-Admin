@@ -16,7 +16,7 @@ if ($mysqli->connect_error) {
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Very adorable dog</title>
+    <title>Adorable dog lovers</title>
     <style>
       body {
         font-family: sans-serif;
@@ -86,7 +86,7 @@ if ($mysqli->connect_error) {
   <body>
   <div class="content">
   <h1>❗❗ IMPORTANT ❗❗</h1>
-  <h2>I found a very cute picture of a dog!</h2>
+  <h2>I found a cute picture of a dog! Please add your comments. </h2>
 
   <img src="assets/dog.jpg" alt="dog" class="dog_img"/>
 

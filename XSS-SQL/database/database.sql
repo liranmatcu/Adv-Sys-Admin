@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS xss_db.comments (
 TRUNCATE TABLE xss_db.comments;
 
 INSERT INTO xss_db.comments (comment_id,username,comment)
-	VALUES (1,'Peter','I love it!');
+	VALUES (1,'Eureka','I love it!');
 
 INSERT INTO xss_db.comments (comment_id,username,comment)
-	VALUES (2,'Susan','That is so cute <3');
+	VALUES (2,'Kate','That is so cute!!');
