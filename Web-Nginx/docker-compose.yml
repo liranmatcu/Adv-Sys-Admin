@@ -14,9 +14,13 @@ services:
     restart: unless-stopped
     tty: true
     volumes:
+      # mount the document root to be served
       - ./html:/usr/share/nginx/html/
-      # - ./conf.d/:/etc/nginx/conf.d/
       # - ./html:/var/www/html/
+      # mount the configuration folder or file
+      # - ./conf.d/my-site:/etc/nginx/conf.d/sites-available/default
+      # - ./conf.d/ssl.conf:/etc/nginx/conf.d/ssl.conf
+      
 
   # Web service: Nginx
   webserver2:
