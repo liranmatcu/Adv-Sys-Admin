@@ -26,8 +26,7 @@ services:
     build:
       context: .
       dockerfile: Apache-Dockerfile
-
-    container_name: web-demo-apache
+    container_name: web-apache2
     hostname: web
     ports:
       - "80:80"
