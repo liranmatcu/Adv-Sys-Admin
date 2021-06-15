@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+
+  # DHCP Server
+  DHCP-Server:
+    image: networkboot/dhcpd
+    container_name: DHCP-Server
+    hostname: D-Server
+    ports:
+      - "6767:67/udp"
+    volumes:
+      - "./server/conf/dhcpd.conf:/data/dhcpd.conf"
+    cap_add:
+      - NET_ADMIN
+    restart: unless-stopped
+
+  # DHCP Client 1
+  DHClient-1:
+    image: nginx:alpine
+    container_name: web-server
+    hostname: web
+    ports:
+     - "80:80"
+    restart: unless-stopped
+
+  # DHCP Client 2
+  DHClient-2:
+    build: ./client
+    container_name: ssh-server
+    hostname: sshd
+    ports:
+      - "8022:22"
+    restart: unless-stopped
