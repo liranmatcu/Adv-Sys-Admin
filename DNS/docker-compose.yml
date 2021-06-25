@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+
+  # DNS Server
+  DNS:
+    image: sameersbn/bind:9.16.1-20200524
+    container_name: DNS-server
+    hostname: Bind9
+    restart: always
+    ports:
+    - "53:53/udp"
+    - "53:53/tcp"
+    - "10000:10000/tcp"
+    volumes:
+    - ./sever/bind:/data
+    # - ./server/conf/named.conf.local:/etc/bind/named.conf.local
+    # :/etc/bind/named.conf.default-zones
+
+  # DNS Client 1
+  DHClient-1:
+    image: nginx:alpine
+    container_name: web-server
+    hostname: web
+    ports:
+     - "80:80"
+    restart: unless-stopped
+
+  # DNS Client 2
+  DHClient-2:
+    build: ./client
+    container_name: ssh-server
+    hostname: sshd
+    ports:
+      - "8022:22"
+    restart: unless-stopped
