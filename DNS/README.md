@@ -7,7 +7,7 @@ docker compose up DNS
 
 
 docker exec -it DNS-server bash
-cd /etc/bind
+cd /data/bind/etc
 Modify named.conf.local
 Add/modify named.conf.default-zones
 
