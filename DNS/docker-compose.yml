@@ -12,8 +12,8 @@ services:
     - "53:53/udp"
     - "53:53/tcp"
     - "10000:10000/tcp"
-    # volumes:
-    # - ./server/data:/data
+    volumes:
+    - ./server/data:/data
     # - ./server/conf/named.conf.local:/data/bind/etc/named.conf.local
     # :/data/bind/etc/named.conf.default-zones
 
