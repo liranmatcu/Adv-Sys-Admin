@@ -16,21 +16,3 @@ services:
     - ./docker/data:/data
     # - ./server/conf/named.conf.local:/data/bind/etc/named.conf.local
     # :/data/bind/etc/named.conf.default-zones
-
-  # DNS Client 1
-  DHClient-1:
-    image: nginx:alpine
-    container_name: web-server
-    hostname: web
-    ports:
-     - "80:80"
-    restart: unless-stopped
-
-  # DNS Client 2
-  DHClient-2:
-    build: ./client
-    container_name: ssh-server
-    hostname: sshd
-    ports:
-      - "8022:22"
-    restart: unless-stopped
