@@ -13,7 +13,7 @@ services:
     - "53:53/tcp"
     - "10000:10000/tcp"
     volumes:
-    - ./server/bind:/data
+    # - ./server/bind:/data
     # - ./server/conf/named.conf.local:/etc/bind/named.conf.local
     # :/etc/bind/named.conf.default-zones
 
