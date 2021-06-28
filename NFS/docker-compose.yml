@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+
+  # NFS Server
+  NFS:
+    image: itsthenetwork/nfs-server-alpine
+    container_name: NFS-server
+    hostname: NFS
+    restart: always
+    ports:
+      - "2049:2049"
+    volumes:
+      - ./server/share:/nfsshare
+    environment:
+      - SHARED_DIRECTORY=/nfsshare
+      # - READ_ONLY
+      # - PERMITTED="10.11.99.*"
+    cap_add:
+      - SYS_ADMIN
+      - SETPCAP
