@@ -5,6 +5,7 @@ https://github.com/networkboot/docker-dhcpd
 docker compose run DHCP-Server
 docker compose up DHCP-Server
 
+Make sure that an entry exits for your IP address subnet
 
 
 ### Other DHCP server
@@ -14,6 +15,11 @@ https://github.com/networkboot/docker-dhcpd
 
 
 # DHCP Client
+
+docker compose run Nmap --script broadcast-dhcp-discover
+
+docker compose run Nmap --script broadcast-dhcp6-discover
+
 https://hub.docker.com/r/modularitycontainers/dhcp-client/
 https://github.com/container-images/dhcp-client
 

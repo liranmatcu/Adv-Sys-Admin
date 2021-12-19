@@ -15,14 +15,13 @@ services:
       - NET_ADMIN
     restart: unless-stopped
 
-  # DHCP Client 1
-  DHClient-1:
-    image: nginx:alpine
-    container_name: web-server
-    hostname: web
-    ports:
-     - "80:80"
-    restart: unless-stopped
+  # DHCP Client nmap
+  Nmap:
+    image: instrumentisto/nmap
+    container_name: nmap
+    hostname: nmap
+    
+ 
 
   # DHCP Client 2
   DHClient-2:
