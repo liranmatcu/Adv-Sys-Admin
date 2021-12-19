@@ -23,4 +23,10 @@ services:
 
 
   # DHCP Client 
+  dhcp-client:
+    build: ./client
+    container_name: dhcp-client
+    hostname: dhcp-client
+    restart: unless-stopped
+
 

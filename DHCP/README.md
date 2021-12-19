@@ -18,9 +18,11 @@ https://github.com/networkboot/docker-dhcpd
 
 docker compose run nmap --script broadcast-dhcp-discover
 docker compose run nmap --script broadcast-dhcp6-discover
- 
+https://nmap.org/nsedoc/scripts/dhcp-discover.html 
 
 # DHCP Client
+
+docker compose run dhcp-client
 
 https://hub.docker.com/r/modularitycontainers/dhcp-client/
 https://github.com/container-images/dhcp-client
