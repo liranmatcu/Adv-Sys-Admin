@@ -15,19 +15,12 @@ services:
       - NET_ADMIN
     restart: unless-stopped
 
-  # DHCP Client nmap
-  Nmap:
-    image: instrumentisto/nmap
-    container_name: nmap
-    hostname: nmap
-    
- 
 
-  # DHCP Client 2
-  DHClient-2:
-    build: ./client
-    container_name: ssh-server
-    hostname: sshd
-    ports:
-      - "8022:22"
-    restart: unless-stopped
+  # nmap
+  nmap:
+    image: instrumentisto/nmap
+    container_name: nmap-dhcp-client
+
+
+  # DHCP Client 
+

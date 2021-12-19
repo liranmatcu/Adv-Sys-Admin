@@ -14,11 +14,13 @@ https://github.com/networkboot/docker-dhcpd
 
 
 
+# DHCP Verification
+
+docker compose run nmap --script broadcast-dhcp-discover
+docker compose run nmap --script broadcast-dhcp6-discover
+ 
+
 # DHCP Client
-
-docker compose run Nmap --script broadcast-dhcp-discover
-
-docker compose run Nmap --script broadcast-dhcp6-discover
 
 https://hub.docker.com/r/modularitycontainers/dhcp-client/
 https://github.com/container-images/dhcp-client
