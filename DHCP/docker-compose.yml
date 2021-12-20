@@ -3,10 +3,10 @@ version: "3"
 services:
 
   # DHCP Server
-  DHCP-Server:
+  dhcp-server:
     image: networkboot/dhcpd
     container_name: DHCP-Server
-    hostname: D-Server
+    hostname: DHCP-S
     ports:
       - "6767:67/udp"
     volumes:
