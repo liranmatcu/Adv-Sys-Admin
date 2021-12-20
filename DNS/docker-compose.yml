@@ -3,16 +3,17 @@ version: "3"
 services:
 
   # DNS Server
-  DNS:
+  dns:
     image: sameersbn/bind:9.16.1-20200524
-    container_name: DNS-server
+    container_name: dns-server
     hostname: Bind9
     restart: always
     ports:
-    - "53:53/udp"
-    - "53:53/tcp"
-    - "10000:10000/tcp"
+      - "53:53/udp"
+      - "53:53/tcp"
+    # - "10000:10000/tcp"
     volumes:
-    # - ./docker/data:/data
-    - ./server/conf/named.conf.local:/data/bind/etc/named.conf.local
-    # :/data/bind/etc/named.conf.default-zones
+      - ./conf/named.conf:/data/bind/etc/named.conf
+      - ./conf/named.conf.local:/data/bind/etc/named.conf.local
+      - ./conf/named.conf.options:/data/bind/etc/named.conf.options
+      - ./conf/named.conf.default-zones:/data/bind/etc/named.conf.default-zones
