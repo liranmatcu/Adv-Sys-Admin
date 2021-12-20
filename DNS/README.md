@@ -4,6 +4,8 @@ https://github.com/sameersbn/docker-bind
 
 ## Start the DNS server
 docker compose up dns
+docker compose run dns 
+
 
 ## Simple test of the DNS service from local host
 dig tcu.edu @127.0.0.1

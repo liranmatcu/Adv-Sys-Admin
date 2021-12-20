@@ -7,11 +7,13 @@ services:
     image: sameersbn/bind:9.16.1-20200524
     container_name: dns-server
     hostname: Bind9
-    restart: always
+    restart: always 
+    environment:
+      - WEBMIN_ENABLED=false
     ports:
       - "53:53/udp"
       - "53:53/tcp"
-    # - "10000:10000/tcp"
+      - "10000:10000/tcp"
     volumes:
       - ./conf/named.conf:/data/bind/etc/named.conf
       - ./conf/named.conf.local:/data/bind/etc/named.conf.local
