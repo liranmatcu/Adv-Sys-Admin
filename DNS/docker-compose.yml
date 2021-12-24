@@ -13,7 +13,5 @@ services:
       - "53:53/tcp"
       - "953:953/tcp"
     volumes:
-      - ./conf/named.conf:/data/bind/etc/named.conf
-      # - ./conf/named.conf.local:/data/bind/etc/named.conf.local
-      # - ./conf/named.conf.options:/data/bind/etc/named.conf.options
-      # - ./conf/named.conf.default-zones:/data/bind/etc/named.conf.default-zones
+      # - ./conf/named.conf:/etc/bind/named.conf
+      - ./conf:/etc/bind/

@@ -11,13 +11,10 @@ docker compose run dns
 dig tcu.edu @127.0.0.1
 
 
-# Make changes to the configuration files
+# Make changes to the configuration files under ./conf
 
-## Or, modify on the mounted directory 
-
-## Log onto the DNS-server container instance
-	docker exec -it dns-server bash
-
-
-## Restart the DNS-server container instance
+## Or, modify on the mounted directory by
+## logging onto the DNS-server container instance
+docker exec -it dns-server bash
+## Then, restart the DNS-server container instance
 docker compose restart DNS
