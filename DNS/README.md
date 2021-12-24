@@ -3,8 +3,8 @@ https://hub.docker.com/r/internetsystemsconsortium/bind9
 
 
 # Start the DNS server
-docker compose up dns
-docker compose up -d dns
+docker compose up dns      # show debug info
+docker compose up -d dns   # run as a daemon; no debug info
 
 
 ## Simple test of the DNS service from local host
