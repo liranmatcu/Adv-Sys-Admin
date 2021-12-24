@@ -1,10 +1,10 @@
-# DNS Server
+# DNS server docker image source
 https://hub.docker.com/r/internetsystemsconsortium/bind9
 
 
-## Start the DNS server
+# Start the DNS server
 docker compose up dns
-docker compose run dns 
+docker compose up -d dns
 
 
 ## Simple test of the DNS service from local host
