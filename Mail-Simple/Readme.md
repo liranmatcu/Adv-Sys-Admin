@@ -1,14 +1,13 @@
-Reference: 
+# Reference: 
 https://codingcraftsman.wordpress.com/2020/04/08/so-you-wanna-build-a-test-mail-server/
+https://hub.docker.com/r/antespi/docker-imap-devel
 
-
-
-Start server (antespi/docker-imap-devel):
+# Start server (antespi/docker-imap-devel):
 docker-compose up mailserver
 
 
 
-Start client (using s-nail program to send mails):
+# Start client (using s-nail program to send mails):
 Alpine (mailx)
 docker-compose run mailclient bash
 

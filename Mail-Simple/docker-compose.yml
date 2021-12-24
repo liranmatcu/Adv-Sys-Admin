@@ -8,8 +8,8 @@ services:
     image: antespi/docker-imap-devel
     
     volumes:
-      - ./Server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
-      - ./Server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
+      - ./server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+      - ./server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
       # `10-ssl.conf` -> `ssl=no`
       # `10-auth.conf` -> `disable_plaintext_auth=no`
 
@@ -27,7 +27,7 @@ services:
   # Email Client to Send via SMTP using s-nail on Alpine
   mailclient:
     build:
-      context: ./Client
+      context: ./client
       dockerfile: Dockerfile-Alpine
     container_name: mailclient
     hostname: mclient
@@ -37,7 +37,7 @@ services:
   # Email Client to Send via SMTP using s-nail on Ubuntu
   mailclient2:
     build:
-      context: ./Client
+      context: ./client
       dockerfile: Dockerfile-Ubuntu
     container_name: mailclient2
     hostname: mclient
