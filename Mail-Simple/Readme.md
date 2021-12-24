@@ -25,5 +25,6 @@ docker run --rm antespi/docker-imap-devel cat /etc/dovecot/conf.d/10-ssl.conf > 
 
 
 
-## Maybe should try this version
+## Other Choices
 https://hub.docker.com/r/juanluisbaptiste/postfix
+https://hub.docker.com/r/mailserver/docker-mailserver
