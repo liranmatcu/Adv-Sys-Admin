@@ -4,10 +4,10 @@ options {
         listen-on { any; };
         listen-on-v6 { ::1; };
         allow-recursion {
-                127.0.0.1;
+                any;
         };
         allow-transfer {
-                127.0.0.1;
+                none;
         };
         allow-update {
                 none;
