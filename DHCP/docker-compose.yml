@@ -5,8 +5,8 @@ services:
   # DHCP Server
   dhcp-server:
     image: networkboot/dhcpd
-    container_name: DHCP-Server
-    hostname: DHCP-S
+    container_name: dhcp-server
+    hostname: dhcp-server
     ports:
       - "6767:67/udp"
     volumes:
