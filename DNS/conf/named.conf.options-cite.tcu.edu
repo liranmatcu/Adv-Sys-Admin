@@ -1,0 +1,29 @@
+// Authoritative DNS server
+options {
+        directory "/var/cache/bind";
+        listen-on { any; };
+        listen-on-v6 { ::1; };
+        allow-recursion {
+                127.0.0.1;
+        };
+        allow-transfer {
+                127.0.0.1;
+        };
+        allow-update {
+                none;
+        };
+};
+
+
+zone "cite.tcu.edu" IN {
+        type primary;
+        file "/etc/bind/named.cite.tcu.edu";
+        allow-transfer { 172.20.0.1; };
+        // allow-transfer { any; };
+};
+
+
+zone "103.0.10.in-addr.arpa" IN {
+        type primary;
+        file "/etc/bind/named.103.0.10";
+};
