@@ -25,12 +25,11 @@ https://nmap.org/nsedoc/scripts/dhcp-discover.html
 
 
 # DHCP Client
-docker compose run dhcp-client
+docker compose run dhclient
 
 https://hub.docker.com/r/modularitycontainers/dhcp-client/
 https://github.com/container-images/dhcp-client
 
-docker run --net=host --cap-add=net_admin dhcp-client-container
 
 
 ## Other DHCP server images
