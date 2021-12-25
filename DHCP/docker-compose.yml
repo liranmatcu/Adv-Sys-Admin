@@ -23,7 +23,7 @@ services:
 
 
   # DHCP Client 
-  dhcp-client:
+  dhclient:
     build: ./client
     container_name: dhcp-client
     hostname: dhcp-client
