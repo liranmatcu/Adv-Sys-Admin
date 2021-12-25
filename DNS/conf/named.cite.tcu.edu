@@ -1,0 +1,19 @@
+$TTL    600
+@                       IN SOA   masterns.cite.tcu.edu. sysadmin.mail.cite.tcu.edu. ( 2013012301 3H 15M 1W 1D ) ;
+@                       IN NS    masterns.cite.tcu.edu.  ; DNS server name
+masterns.cite.tcu.edu.    IN A     10.0.103.3         ; DNS server IP
+@                       IN MX 10 mail.cite.tcu.edu.     ; mail server
+
+; all about 10.0.103.3 
+www.cite.tcu.edu.       IN A     10.0.103.3
+nfs.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
+ftp.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
+nis.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
+; mail.cite.tcu.edu.      IN CNAME www.cite.tcu.edu.
+mail.cite.tcu.edu.      IN a 10.0.103.3
+
+;
+centos.cite.tcu.edu.      IN A    10.0.103.2
+fcclient.cite.tcu.edu.    IN A    10.0.103.4
+winxp.cite.tcu.edu.       IN A    10.0.103.5
+win7                      IN A    10.0.103.230 ; short version

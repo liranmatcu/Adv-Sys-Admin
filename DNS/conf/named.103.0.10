@@ -1,0 +1,11 @@
+$TTL    600
+@       IN SOA   master.cite.tcu.edu. admin.mail.cite.tcu.edu. ( 2012042301 3H 15M 1W 1D ) ;
+@       IN NS    master.cite.tcu.edu.  ; DNS server name
+
+3 	IN PTR   master.cite.tcu.edu. ; 
+
+;individual servers
+2   IN PTR centos.cite.tcu.edu.
+4   IN PTR fcclient.cite.tcu.edu.
+5   IN PTR winxp.cite.tcu.edu.
+230 IN PTR win7.cite.tcu.edu. 

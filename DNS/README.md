@@ -17,4 +17,4 @@ dig tcu.edu @127.0.0.1
 ## logging onto the DNS-server container instance
 docker exec -it dns-server bash
 ## Then, restart the DNS-server container instance
-docker compose restart DNS
+docker compose restart dns
