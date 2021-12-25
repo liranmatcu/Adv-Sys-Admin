@@ -11,6 +11,7 @@ services:
     ports:
       - "53:53/udp"
       - "53:53/tcp"
-      - "953:953/tcp"
+      # - "953:953/tcp"
+      # - "953:953/udp"
     volumes:
       - ./conf:/etc/bind/
