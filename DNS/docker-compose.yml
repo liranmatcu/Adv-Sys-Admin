@@ -1,13 +1,22 @@
 version: "3"
 
-services:
 
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 10.0.103.0/24
+
+services:
   # DNS Server
   dns:
     image: internetsystemsconsortium/bind9:9.16
     container_name: dns-server
     hostname: bind9
     restart: always 
+    networks:
+      lab:
+        ipv4_address: 10.0.103.2
     ports:
       - "53:53/udp"
       - "53:53/tcp"
