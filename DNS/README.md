@@ -4,6 +4,8 @@ https://hub.docker.com/r/internetsystemsconsortium/bind9
 
 # Start the DNS server
 docker compose up dns      # show debug info
+docker network prune       # if needed
+
 docker compose up -d dns   # run as a daemon; no debug info
 
 
