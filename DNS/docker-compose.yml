@@ -15,7 +15,7 @@ services:
     restart: always 
     networks:
       lab:
-        ipv4_address: 10.0.103.2
+        ipv4_address: 10.0.103.3
     ports:
       - "53:53/udp"
       - "53:53/tcp"
