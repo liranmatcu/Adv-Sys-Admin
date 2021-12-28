@@ -19,7 +19,24 @@ services:
     ports:
       - "53:53/udp"
       - "53:53/tcp"
+      # - "953:953/tcp"
+      # - "953:953/udp"
+    volumes:
+      - ./conf:/etc/bind/
+
+
+  dns-secondary:
+    image: internetsystemsconsortium/bind9:9.16
+    container_name: dns-secondary
+    hostname: bind9-sec
+    restart: always 
+    networks:
+      lab:
+        ipv4_address: 10.0.103.4
+    ports:
+      # - "53:53/udp"
+      # - "53:53/tcp"
       - "953:953/tcp"
       - "953:953/udp"
     volumes:
-      - ./conf:/etc/bind/
+      - ./conf-secondary:/etc/bind/
