@@ -36,3 +36,13 @@ services:
       - "953:953/udp"
     volumes:
       - ./conf-secondary:/etc/bind/
+
+
+  nsupdate:
+    image: menski/nsupdate
+    container_name: nsupdate
+    networks:
+      lab:
+        ipv4_address: 10.0.103.100
+    volumes:
+      - ./nsupdate-key:/key
