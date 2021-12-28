@@ -45,4 +45,14 @@ services:
       lab:
         ipv4_address: 10.0.103.100
     volumes:
-      - ./nsupdate-key:/key
+      - ./nsupdate:/key
+
+  nsupdate2:
+    build: ./nsupdate
+    container_name: nsupdate2
+    networks:
+      lab:
+        ipv4_address: 10.0.103.101
+    volumes:
+      - ./nsupdate/key:/home/nsupdate/key
+
