@@ -22,3 +22,6 @@ docker exec -it dns bash
 docker compose restart dns
 
 docker exec -it dns-secondary bash
+
+# nsupdate
+docker compose run nsupdate -k /key
