@@ -45,7 +45,7 @@ services:
       lab:
         ipv4_address: 10.0.103.100
     volumes:
-      - ./nsupdate:/key
+      - ./nsupdate/key:/key
 
   nsupdate2:
     build: ./nsupdate
