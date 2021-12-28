@@ -17,6 +17,8 @@ dig tcu.edu @127.0.0.1
 
 ## Or, modify on the mounted directory by
 ## logging onto the DNS-server container instance
-docker exec -it dns-server bash
+docker exec -it dns bash
 ## Then, restart the DNS-server container instance
 docker compose restart dns
+
+docker exec -it dns-secondary bash
