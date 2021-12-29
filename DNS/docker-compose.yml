@@ -39,20 +39,21 @@ services:
 
 
   nsupdate:
-    image: menski/nsupdate
+    build: ./nsupdate
     container_name: nsupdate
     networks:
       lab:
         ipv4_address: 10.0.103.100
     volumes:
-      - ./nsupdate/keys:/keys
+      - ./nsupdate/keys:/home/nsupdate/keys
 
   nsupdate2:
-    build: ./nsupdate
+    image: menski/nsupdate
     container_name: nsupdate2
     networks:
       lab:
         ipv4_address: 10.0.103.101
     volumes:
-      - ./nsupdate/keys:/home/nsupdate/keys
+      - ./nsupdate/keys:/keys
+
 

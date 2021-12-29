@@ -24,4 +24,9 @@ docker compose restart dns
 docker exec -it dns-secondary bash
 
 # nsupdate
-docker compose run nsupdate -k /key
+docker compose run nsupdate -k keys/Ksamba.+002+10519.key
+
+docker compose run nsupdate2 -k /keys/Ksamba.+002+10519.key
+
+## or from network-tools
+docker run --rm -it jonlabelle/network-tools
