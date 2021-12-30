@@ -2,7 +2,7 @@
 https://hub.docker.com/r/internetsystemsconsortium/bind9
 
 
-# Start the DNS server
+# Start the primary DNS server
 docker compose up dns      # show debug info
 docker network prune       # if needed
 
@@ -21,7 +21,9 @@ docker exec -it dns bash
 ## Then, restart the DNS-server container instance
 docker compose restart dns
 
-docker exec -it dns-secondary bash
+# Start the secondary DNS server
+docker compose up dns-secondary
+
 
 # nsupdate
 docker compose run nsupdate -k keys/Ksamba.key
