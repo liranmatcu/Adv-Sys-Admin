@@ -8,8 +8,8 @@ sec-ns.cite.tcu.edu.      IN A     10.0.103.4
 
 ; all about 10.0.103.3 
 www.cite.tcu.edu.       IN A     10.0.103.3
+web.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
 nfs.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
-ftp.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
 nis.cite.tcu.edu.       IN CNAME www.cite.tcu.edu.
 
 ;
