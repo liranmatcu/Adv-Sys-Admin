@@ -3,9 +3,9 @@ https://hub.docker.com/r/itsthenetwork/nfs-server-alpine/
 https://sysadmins.co.za/setup-a-nfs-server-with-docker/
 
 # Start NFS server
-docker compose up NFS
+docker compose up nfs-server
 
-docker exec -it NFS-server bash
+docker exec -it nfs-server bash
 
 The /etc/exports file contains these parameters unless modified by the environment variables listed above:
 
@@ -14,3 +14,5 @@ The /etc/exports file contains these parameters unless modified by the environme
 
 # NFS client
 https://hub.docker.com/r/d3fk/nfs-client/
+
+docker compose run nfs-client
