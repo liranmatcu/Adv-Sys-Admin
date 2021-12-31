@@ -1,0 +1,36 @@
+version: "3"
+
+networks:
+  lab:
+    ipam:
+      config:
+        - subnet: 10.0.103.0/24
+
+services:
+
+  ssh-client:
+    build: ./ssh_client
+    container_name: ssh-client
+    hostname: ssh-client
+    networks:
+      lab:
+        ipv4_address: 10.0.103.3
+    volumes:
+      - ./ssh_client/pub_keys:/c_keys
+
+
+  ssh-server:
+    build: ./ssh_server
+    container_name: ssh-server
+    hostname: ssh-server
+    restart: always 
+    networks:
+      lab:
+        ipv4_address: 10.0.103.2
+    volumes:
+      - ./ssh_server/pub_keys:/s_keys
+
+
+
+
+
