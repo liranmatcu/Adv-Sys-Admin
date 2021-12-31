@@ -37,10 +37,12 @@ services:
       lab:
         ipv4_address: 10.0.103.4
     privileged: true
-    restart: always
+    # restart: always
+    volumes:
+      - /mnt/nfs_demo:/nfsshare:shared    
     environment:
-      - SERVER: 10.0.103.3
-      - SHARE: 
+      SERVER: 10.0.103.3
+      # - SHARE: 
 
   # nfs-client:
   #   image: d3fk/nfs-client
