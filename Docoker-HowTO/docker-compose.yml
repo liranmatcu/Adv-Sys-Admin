@@ -6,8 +6,18 @@ networks:
       config:
         - subnet: 10.0.103.0/24
 
+
 services:
-  
+
+  bash-hello:
+    image: bash:devel-alpine3.14
+    container_name: bash-hello
+
+  bash-hello2:
+    build: ./bash
+    container_name: bash-hello2
+
+
   nodejs-hello:
     build: ./nodejs
     container_name: nj-hello
@@ -20,12 +30,3 @@ services:
     # volumes:
     #   - ./conf:/etc/
 
-
-  bash-hello:
-    image: bash:devel-alpine3.14
-    container_name: bash-hello
-
-
-  bash-hello2:
-    build: ./bash
-    container_name: bash-hello2
