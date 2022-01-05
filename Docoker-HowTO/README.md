@@ -18,6 +18,9 @@ docker-compose run --rm bash-hello echo "Hello World"
 
 docker-compose run --rm bash-hello 
 
+docker-compose run --rm bash-hello2
+
+
 # clean up
 docker rm $(docker stop $(docker ps -aq))
 docker-compose down --rmi all

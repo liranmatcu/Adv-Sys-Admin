@@ -24,4 +24,8 @@ services:
   bash-hello:
     image: bash:devel-alpine3.14
     container_name: bash-hello
-    hostname: bash-hello
+
+
+  bash-hello2:
+    build: ./bash
+    container_name: bash-hello2
