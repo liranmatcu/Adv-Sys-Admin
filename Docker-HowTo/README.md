@@ -18,7 +18,7 @@ docker-compose run --rm bash-hello echo "Hello World"
 
 docker-compose run --rm bash-hello 
 
-docker-compose run --rm bash-hello2
+docker-compose run --rm bash-hello2 echo "Hello World"
 
 
 # clean up
