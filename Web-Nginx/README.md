@@ -1,7 +1,7 @@
 # Start server in debug mode
-docker-compose up webserver
+docker-compose up web-nginx
 # In daemon mode
-docker-compose up  -d webserver  
+docker-compose up  web-nginx -d  
 # Log on to the web server container
 docker exec -it web-nginx sh  
 docker restart  web-nginx
