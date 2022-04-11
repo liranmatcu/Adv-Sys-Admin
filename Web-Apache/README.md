@@ -1,12 +1,14 @@
-# Start server in debug mode
-docker-compose up webserver
+# Start web server http in debug mode
+docker-compose up web-server-apache
 # In daemon mode
-docker-compose up  -d webserver  
+docker-compose up  -d web-server-apache  
 # Log on to the web server container
 docker exec -it web-apache sh    
 
+
 # A demo web server with https
-docker-compose up webdemo
+docker-compose up web-https-apache
+
 
 
 
