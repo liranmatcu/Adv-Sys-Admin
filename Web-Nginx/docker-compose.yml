@@ -3,7 +3,7 @@ version: "3"
 services:
 
   # Web service: Nginx:alpine
-  webserver:
+  web-nginx:
     image: nginx:alpine
     container_name: web-nginx
     hostname: web
@@ -23,7 +23,7 @@ services:
       
 
   # Web service: Nginx
-  webserver2:
+  web-nginx2:
     image: nginx
     container_name: web-nginx2
     hostname: web2
