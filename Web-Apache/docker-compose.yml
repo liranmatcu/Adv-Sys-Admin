@@ -4,7 +4,7 @@ services:
 
   # Allow user to perform manual configuration
   # Configuration files are located in ./conf folder
-  webserver:
+  web-server-apache:
     # Instead of building an image, use a httpd image directly
     image: httpd:2.4
     container_name: web-apache
@@ -21,7 +21,7 @@ services:
 
   # Apache configured with https enabled
   # using Dockerfile 
-  webdemo:
+  web-https-apache:
     # Build our image based a Docker file
     build:
       context: .
