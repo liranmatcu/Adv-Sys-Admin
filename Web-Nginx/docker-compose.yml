@@ -15,10 +15,12 @@ services:
     tty: true
     volumes:
       # mount the document root to be served
-      - ./html:/usr/share/nginx/html/
+      # - ./conf.d/default:/etc/nginx/conf.d/default.conf
+      - ./html/index.html:/usr/share/nginx/html/index.html
       # - ./html:/var/www/html/
       # mount the configuration folder or file
-      # - ./conf.d/my-site:/etc/nginx/conf.d/sites-available/default
+      - ./conf.d/ma.edu-8080:/etc/nginx/conf.d/ma-edu.conf
+      - ./html/index-ma-edu.html:/var/www/html/index.html
       # - ./conf.d/ssl.conf:/etc/nginx/conf.d/ssl.conf
       
 
