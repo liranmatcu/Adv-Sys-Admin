@@ -1,0 +1,48 @@
+version: "3.9"
+
+services:
+
+  # Email Server Postfix and Dovecot
+  mailserver:
+    container_name: mailserver
+    image: antespi/docker-imap-devel
+    
+    volumes:
+      - ./server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+      - ./server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
+      # `10-ssl.conf` -> `ssl=no`
+      # `10-auth.conf` -> `disable_plaintext_auth=no`
+
+    # expose the SMTP and IMAP ports
+    ports:
+      - 25:25
+      - 143:143
+    
+    environment:
+      MAILNAME: eureka.edu
+      MAIL_PASS: password
+      MAIL_ADDRESS: student@eureka.edu
+
+
+  # Email Client to Send via SMTP using s-nail on Alpine
+  mailclient:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-Alpine
+    container_name: mailclient
+    hostname: mclient
+    # volumes:
+    #   - ./test-data:/opt/test-data
+
+  # Email Client to Send via SMTP using s-nail on Ubuntu
+  mailclient2:
+    build:
+      context: ./client
+      dockerfile: Dockerfile-Ubuntu
+    container_name: mailclient2
+    hostname: mclient
+    # volumes:
+    #   - ./test-data:/opt/test-data
+
+
+

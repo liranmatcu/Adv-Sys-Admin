@@ -2,26 +2,58 @@ version: "3.9"
 
 services:
 
-  # Email Server Postfix and Dovecot
   mailserver:
+    image: docker.io/mailserver/docker-mailserver:latest
     container_name: mailserver
-    image: antespi/docker-imap-devel
-    
-    volumes:
-      - ./server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
-      - ./server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
-      # `10-ssl.conf` -> `ssl=no`
-      # `10-auth.conf` -> `disable_plaintext_auth=no`
-
-    # expose the SMTP and IMAP ports
+    # If the FQDN for your mail-server is only two labels (eg: example.com),
+    # you can assign this entirely to `hostname` and remove `domainname`.
+    hostname: mail
+    domainname: eureka.edu
+    env_file: mailserver.env
+    # More information about the mail-server ports:
+    # https://docker-mailserver.github.io/docker-mailserver/edge/config/security/understanding-the-ports/
+    # To avoid conflicts with yaml base-60 float, DO NOT remove the quotation marks.
     ports:
-      - 25:25
-      - 143:143
+      - "25:25"    # SMTP  (explicit TLS => STARTTLS)
+      - "143:143"  # IMAP4 (explicit TLS => STARTTLS)
+      - "465:465"  # ESMTP (implicit TLS)
+      - "587:587"  # ESMTP (explicit TLS => STARTTLS)
+      - "993:993"  # IMAP4 (implicit TLS)
+    volumes:
+      - ./docker-data/dms/mail-data/:/var/mail/
+      - ./docker-data/dms/mail-state/:/var/mail-state/
+      - ./docker-data/dms/mail-logs/:/var/log/mail/
+      - ./docker-data/dms/config/:/tmp/docker-mailserver/
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    stop_grace_period: 1m
+    cap_add:
+      - NET_ADMIN
+    healthcheck:
+      test: "ss --listening --tcp | grep -P 'LISTEN.+:smtp' || exit 1"
+      timeout: 3s
+      retries: 0
+      
+  # # Email Server Postfix and Dovecot
+  # mailserver:
+  #   container_name: mailserver
+  #   image: antespi/docker-imap-devel
     
-    environment:
-      MAILNAME: eureka.edu
-      MAIL_PASS: password
-      MAIL_ADDRESS: student@eureka.edu
+  #   volumes:
+  #     - ./server/10-auth.conf:/etc/dovecot/conf.d/10-auth.conf
+  #     - ./server/10-ssl.conf:/etc/dovecot/conf.d/10-ssl.conf
+  #     # `10-ssl.conf` -> `ssl=no`
+  #     # `10-auth.conf` -> `disable_plaintext_auth=no`
+
+  #   # expose the SMTP and IMAP ports
+  #   ports:
+  #     - 25:25
+  #     - 143:143
+    
+  #   environment:
+  #     MAILNAME: eureka.edu
+  #     MAIL_PASS: password
+  #     MAIL_ADDRESS: student@eureka.edu
 
 
   # Email Client to Send via SMTP using s-nail on Alpine
