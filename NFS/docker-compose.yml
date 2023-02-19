@@ -23,6 +23,18 @@ services:
     cap_add:
       - SYS_ADMIN
 
+  # NFS Client
+  client:
+    build: ./client
+    container_name: nfs-client
+    hostname: nfs-client
+    networks:
+      lab:
+        ipv4_address: 10.0.103.4
+    cap_add:
+      - SYS_ADMIN
+
+
   # Another NFS server image (unstable)
   server-2:
     image: itsthenetwork/nfs-server-alpine
@@ -46,28 +58,13 @@ services:
       - SETPCAP
 
 
-  client:
-    build: ./client
-    container_name: nfs-client
-    hostname: nfs-c
-    # net: host
-    networks:
-      lab:
-        ipv4_address: 10.0.103.4
-    privileged: true
-    # restart: always
-    # volumes:
-      # - /mnt:/nfsshare:shared  
-      # - ./demo:/nfsshare:shared   
-    environment:
-      SERVER: 10.0.103.3
-      # - SHARE: 
+    # privileged: true
+    # # restart: always
+    # # volumes:
+    #   # - /mnt:/nfsshare:shared  
+    #   # - ./demo:/nfsshare:shared   
+    # environment:
+    #   SERVER: 10.0.103.3
+    #   # - SHARE: 
 
-  # nfs-client:
-  #   image: d3fk/nfs-client
-  #   container_name: nfs-client
-  #   hostname: nfs-c
-  #   privileged: true
-  #   cap_add:
-  #     - SYS_ADMIN
-  #     - SETPCAP
+ 
