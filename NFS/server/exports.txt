@@ -1,1 +1,1 @@
-/nfsshare *(fsid=26,ro,no_subtree_check,no_auth_nlm,insecure,no_root_squash)
+/nfsshare  *(fsid=26,ro,no_subtree_check,no_auth_nlm,insecure,no_root_squash)
