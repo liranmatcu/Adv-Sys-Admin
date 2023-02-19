@@ -13,7 +13,7 @@ RUN apk add --no-cache --update --verbose nfs-utils bash iproute2 && \
 
 COPY exports /etc/
 COPY nfsd.sh /usr/bin/nfsd.sh
-COPY .bashrc /root/.bashrc
+COPY bashrc /root/.bashrc
 
 RUN chmod +x /usr/bin/nfsd.sh
 
