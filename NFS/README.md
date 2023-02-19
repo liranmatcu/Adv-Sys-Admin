@@ -15,6 +15,7 @@ The /etc/exports file contains these parameters unless modified by the environme
 
 # NFS client
 https://hub.docker.com/r/d3fk/nfs-client/
+docker pull d3fk/nfs-client
 
 docker-compose run nfs-client
 docker run -itd --privileged=true --net=host -v vol:/mnt/nfs-1:shared -e SERVER= X.X.X.X -e SHARE=shared_path d3fk/nfs-client

@@ -17,7 +17,7 @@ services:
       lab:
         ipv4_address: 10.0.103.3    
     ports:
-      - "2049:2049"
+      - 2049:2049
     volumes:
       - ./server/share:/nfsshare
     environment:
@@ -38,8 +38,9 @@ services:
         ipv4_address: 10.0.103.4
     privileged: true
     # restart: always
-    volumes:
-      - /mnt/nfs_demo:/nfsshare:shared    
+    # volumes:
+      # - /mnt:/nfsshare:shared  
+      # - ./demo:/nfsshare:shared   
     environment:
       SERVER: 10.0.103.3
       # - SHARE: 

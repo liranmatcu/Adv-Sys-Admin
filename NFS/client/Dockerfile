@@ -1,4 +1,7 @@
-FROM       alpine:latest
+FROM alpine:latest
+LABEL org.opencontainers.image.authors="d3fk"
+LABEL org.opencontainers.image.source="https://github.com/Angatar/docker-nfs-client.git"
+LABEL org.opencontainers.image.url="https://github.com/Angatar/docker-nfs-client"
 
 # USAGE
 # $ docker build -t nfs-client .
@@ -15,19 +18,18 @@ FROM       alpine:latest
 #             -e SERVER=192.168.0.9 \
 #             -e SHARE=movies \
 #             -e MOUNT_OPTIONS="nfsvers=3,ro" \
-#             -e FSTYPE=nfs3 \
+#             -e FSTYPE=nfs \
 #             -e MOUNTPOINT=/mnt/host/mnt/nfs-1 \
 #                nfs-client
 
-#to enable nfs4 simply switch the FSTYPE to nfs3 and set nfsvers=3
+#to enable nfs4 simply switch the FSTYPE to nfs4 and set nfsvers=4 
 ENV FSTYPE nfs
-ENV MOUNT_OPTIONS nfsvers=4
+ENV MOUNT_OPTIONS nfsvers=3
 ENV MOUNTPOINT /mnt/nfs-1
 
-RUN apk update && apk add --update nfs-utils && rm -rf /var/cache/apk/*
-
+RUN apk upgrade --no-cache && apk add --no-cache nfs-utils \
 # https://github.com/rancher/os/issues/641#issuecomment-157006575
-RUN rm /sbin/halt /sbin/poweroff /sbin/reboot
+    && rm /sbin/halt /sbin/poweroff /sbin/reboot
 
 ADD entry.sh /usr/local/bin/entry.sh
 
