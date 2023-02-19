@@ -4,7 +4,7 @@ https://sysadmins.co.za/setup-a-nfs-server-with-docker/
 
 
 # Start NFS server
-docker-compose up nfs-server
+docker-compose up server
 
 docker exec -it nfs-server bash
 
@@ -20,7 +20,21 @@ docker pull d3fk/nfs-client
 docker-compose run nfs-client
 docker run -itd --privileged=true --net=host -v vol:/mnt/nfs-1:shared -e SERVER= X.X.X.X -e SHARE=shared_path d3fk/nfs-client
 
+Verify:
+showmount -e 10.0.103.3
+
+docker network ls
+docker run -it --network=nfs_lab alpine sh
+apk add nfs-utils
+
 
 New sources:
 https://hub.docker.com/r/erichough/nfs-server/
 https://github.com/ehough/docker-nfs-server
+
+docker run                                            \
+  -v ./server/share:/nfsshare  \
+  -v ./server/exports.txt:/etc/exports:ro        \
+  --cap-add SYS_ADMIN                                 \
+  -p 2049:2049                                        \
+  erichough/nfs-server
