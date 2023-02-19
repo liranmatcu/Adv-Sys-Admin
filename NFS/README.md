@@ -2,9 +2,6 @@
 https://hub.docker.com/r/itsthenetwork/nfs-server-alpine/
 https://sysadmins.co.za/setup-a-nfs-server-with-docker/
 
-New source:
-https://hub.docker.com/r/erichough/nfs-server/
-https://github.com/ehough/docker-nfs-server
 
 # Start NFS server
 docker-compose up nfs-server
@@ -21,3 +18,8 @@ https://hub.docker.com/r/d3fk/nfs-client/
 
 docker-compose run nfs-client
 docker run -itd --privileged=true --net=host -v vol:/mnt/nfs-1:shared -e SERVER= X.X.X.X -e SHARE=shared_path d3fk/nfs-client
+
+
+New sources:
+https://hub.docker.com/r/erichough/nfs-server/
+https://github.com/ehough/docker-nfs-server
