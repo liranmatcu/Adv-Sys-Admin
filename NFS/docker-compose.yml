@@ -20,6 +20,7 @@ services:
     volumes:
       - ./server/exports.txt:/etc/exports:ro
       - ./server/share:/nfsshare
+    privileged: true
     cap_add:
       - SYS_ADMIN
 
