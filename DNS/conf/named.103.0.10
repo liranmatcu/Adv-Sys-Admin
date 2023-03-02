@@ -1,8 +1,8 @@
 $TTL    600
-@       IN SOA   master.cite.tcu.edu. admin.mail.cite.tcu.edu. ( 2022022301 3H 15M 1W 1D ) ;
-@       IN NS    master.cite.tcu.edu.  ; Primary DNS server name
+@       IN SOA   primary-ns.cite.tcu.edu. admin.mail.cite.tcu.edu. ( 2022022301 3H 15M 1W 1D ) ;
+@       IN NS    primary-ns.cite.tcu.edu.  ; Primary DNS server name
 
-3 	 IN PTR   master.cite.tcu.edu. ; 
+3 	 IN PTR   primary-ns.cite.tcu.edu. ; 
 
 ;individual servers/machines
 2    IN PTR sql-db.cite.tcu.edu.
