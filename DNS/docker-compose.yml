@@ -56,4 +56,10 @@ services:
     volumes:
       - ./nsupdate/keys:/keys
 
+  dig:
+    image: cmd.cat/dig/nslookup/whois
+    container_name: dig
+    networks:
+      lab:
+        ipv4_address: 10.0.103.200
 
